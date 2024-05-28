@@ -16,7 +16,19 @@ repositories {
 	mavenCentral()
 }
 
+tasks.withType(JavaCompile) {
+// 인코딩을 설정한다.
+options.encoding = 'UTF-8'
+// 추가 인수를 전달한다.
+options.compilerArgs << '-parameters'
+}
+
 dependencies {
+	implementation 'com.zaxxer:HikariCP:5.1.0'
+	implementation 'com.oracle.database.jdbc:ojdbc11:23.3.0.23.09'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	implementation 'org.springframework.boot:spring-boot-starter-tomcat'
 	runtimeOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
