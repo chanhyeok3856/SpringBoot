@@ -49,7 +49,7 @@ font-weight: bold;
 </style>
 </head>
 <body>
-<div class="container p-3 my-3 border">
+<!-- <div class="container p-3 my-3 border">
 <div class="btn-group-custom">
 <button id="selectAllBtn" class="btn btn-outline-secondary">부서 목록</button>
 <button id="selectBtn" class="btn btn-outline-secondary">부서 상세 보기</button>
@@ -70,7 +70,7 @@ font-weight: bold;
 </table>
 </div>
 </div>
-<!-- 부서 상세 모달을 설정한다.-->
+부서 상세 모달을 설정한다.
 <div class="modal fade" id="selectModal" tabindex="-1" role="dialog" aria-labelledby="selectModalLabel" 
 aria-hidden="true">
 <div class="modal-dialog" role="document">
@@ -123,7 +123,7 @@ aria-hidden="true">
 </div>
 </div>
 </div>
-<!-- 부서 수정 모달을 설정한다.-->
+부서 수정 모달을 설정한다.
 <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" 
 aria-hidden="true">
 <div class="modal-dialog" role="document">
@@ -154,7 +154,7 @@ aria-hidden="true">
 </div>
 </div>
 </div>
-<!-- 부서 삭제 모달을 설정한다.-->
+부서 삭제 모달을 설정한다.
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" 
 aria-hidden="true">
 <div class="modal-dialog" role="document">
@@ -176,7 +176,7 @@ aria-hidden="true">
 </div>
 </div>
 </div>
-</div>
+</div> -->
 <script type="text/javascript">
 // 콜백 함수로 문서가 완전히 로드되고 DOM이 준비된 후에 실행된다.
 $(function( ) {

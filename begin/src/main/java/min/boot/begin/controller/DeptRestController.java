@@ -34,40 +34,33 @@ logger.info("list", list);
 return new ResponseEntity<>(list, HttpStatus.OK);
 }
 // 상세 부서 정보에 대한 요청을 처리하고 JSON 데이터를 반환한다.
-@GetMapping("/select/{deptno}")
-public ResponseEntity<?> detail(@PathVariable("deptno") int deptno) {
-DeptDTO deptDTO = deptService.deptSelect(deptno);
-if(deptDTO == null) {
-// 부서 번호가 존재하지 않을 경우에 404 상태 코드를 반환한다.
-return new ResponseEntity< >("부서 번호 미존재 : ", HttpStatus.NOT_FOUND);
-}
-return new ResponseEntity< >(deptDTO, HttpStatus.OK);
-}
-@PostMapping("/insert")
-public ResponseEntity<String> insert(@RequestBody DeptDTO deptDTO) {
-if(deptService.deptSelect(deptDTO.getDeptno( )) != null) {
-// 부서 번호가 이미 존재할 경우에 400 상태 코드를 반환한다.
-return new ResponseEntity< >("부서 번호 존재 : ", HttpStatus.BAD_REQUEST);
-}
-deptService.deptInsert(deptDTO);
-return new ResponseEntity< >("입력 성공 : ", HttpStatus.OK);
-}
-// 부서 정보를 수정에 대한 요청을 처리하고 JSON 데이터를 반환한다.
-@PutMapping("/update")
-public ResponseEntity<String> update(@RequestBody DeptDTO deptDTO) {
-if(deptService.deptSelect(deptDTO.getDeptno( )) == null) {
-return new ResponseEntity<String>("부서 번호 미존재 : ", HttpStatus.NOT_FOUND);
-}
-deptService.deptUpdate(deptDTO);
-return new ResponseEntity<String>("수정 성공 : ", HttpStatus.OK);
-}
-// 부서 정보를 삭제에 대한 요청을 처리하고 JSON 데이터를 반환한다.
-@DeleteMapping("/delete/{deptno}")
-public ResponseEntity<String> delete(@PathVariable("deptno") int deptno) {
-if(deptService.deptSelect(deptno) == null) {
-return new ResponseEntity<String>("부서 번호 미존재 : ", HttpStatus.NOT_FOUND);
-}
-deptService.deptDelete(deptno);
-return new ResponseEntity<String>("삭제 성공", HttpStatus.OK);
-}
+/*
+ * @GetMapping("/select/{deptno}") public ResponseEntity<?>
+ * detail(@PathVariable("deptno") int deptno) { DeptDTO deptDTO =
+ * deptService.deptSelect(deptno); if(deptDTO == null) { // 부서 번호가 존재하지 않을 경우에
+ * 404 상태 코드를 반환한다. return new ResponseEntity< >("부서 번호 미존재 : ",
+ * HttpStatus.NOT_FOUND); } return new ResponseEntity< >(deptDTO,
+ * HttpStatus.OK); }
+ * 
+ * @PostMapping("/insert") public ResponseEntity<String> insert(@RequestBody
+ * DeptDTO deptDTO) { if(deptService.deptSelect(deptDTO.getDeptno( )) != null) {
+ * // 부서 번호가 이미 존재할 경우에 400 상태 코드를 반환한다. return new ResponseEntity<
+ * >("부서 번호 존재 : ", HttpStatus.BAD_REQUEST); } deptService.deptInsert(deptDTO);
+ * return new ResponseEntity< >("입력 성공 : ", HttpStatus.OK); } // 부서 정보를 수정에 대한
+ * 요청을 처리하고 JSON 데이터를 반환한다.
+ * 
+ * @PutMapping("/update") public ResponseEntity<String> update(@RequestBody
+ * DeptDTO deptDTO) { if(deptService.deptSelect(deptDTO.getDeptno( )) == null) {
+ * return new ResponseEntity<String>("부서 번호 미존재 : ", HttpStatus.NOT_FOUND); }
+ * deptService.deptUpdate(deptDTO); return new
+ * ResponseEntity<String>("수정 성공 : ", HttpStatus.OK); } // 부서 정보를 삭제에 대한 요청을
+ * 처리하고 JSON 데이터를 반환한다.
+ * 
+ * @DeleteMapping("/delete/{deptno}") public ResponseEntity<String>
+ * delete(@PathVariable("deptno") int deptno) {
+ * if(deptService.deptSelect(deptno) == null) { return new
+ * ResponseEntity<String>("부서 번호 미존재 : ", HttpStatus.NOT_FOUND); }
+ * deptService.deptDelete(deptno); return new ResponseEntity<String>("삭제 성공",
+ * HttpStatus.OK); }
+ */
 }

@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-메인 페이지
+<button>조회하기</button>
 </body>
 </html>

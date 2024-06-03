@@ -15,8 +15,8 @@
 <div class="container">
 <div class="row">
 <div class="col-md-6">
-<h1> 상세 부서 정보 </h1>
-</div>
+<h1> 상세 부서 정보 </h1>                                           
+</div> 
 </div>
 </div>
 </header>
