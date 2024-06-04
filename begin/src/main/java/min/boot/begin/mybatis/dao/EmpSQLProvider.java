@@ -22,5 +22,6 @@ public String paging(Map<String, Object> map) {
 	if("job".equals(searchFilter) && searchQuery != null && !searchQuery.isEmpty( )) {
 		stringBuilder.append(" and job like '%' || #{searchQuery} || '%'");
 		}
+	return searchQuery;
 }
 }
