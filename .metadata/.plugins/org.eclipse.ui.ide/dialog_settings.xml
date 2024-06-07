@@ -16,7 +16,7 @@
 		<item value="org.eclipse.jgit:6.9.0.202403050737-r"/>
 		<item value="org.eclipse.jst.common.fproj.enablement.jdt:3.29.0.v202308161955"/>
 		<item value="org.eclipse.jst.enterprise_ui.feature:3.33.0.v202401080452"/>
-		<item value="org.eclipse.justj.openjdk.hotspot.jre.full:17.0.10.v20240120-1143"/>
+		<item value="org.eclipse.justj.openjdk.hotspot.jre.full:17.0.11.v20240426-1830"/>
 		<item value="org.eclipse.m2e.feature:2.6.0.20240220-1109"/>
 		<item value="org.eclipse.m2e.logback.feature:2.6.0.20240217-1525"/>
 		<item value="org.eclipse.m2e.wtp.feature:1.6.1.20231024-1618"/>
@@ -34,62 +34,6 @@
 		<item value="org.eclipse.wst.web_ui.feature:3.31.0.v202403030558"/>
 		<item value="org.eclipse.wst.xml_ui.feature:3.33.0.v202402030243"/>
 		<item value="org.jboss.tools.m2e.wro4j.feature:1.2.1.202301111328"/>
-		<item value="org.sf.feeling.decompiler.cfr:3.5.0"/>
-		<item value="org.sf.feeling.decompiler.fernflower:3.5.0"/>
-		<item value="org.sf.feeling.decompiler.jd:3.5.0"/>
-		<item value="org.sf.feeling.decompiler.procyon:3.5.0"/>
-		<item value="org.sf.feeling.decompiler.vineflower:3.5.0"/>
-		<item value="org.sf.feeling.decompiler:3.5.0"/>
 		<item value="org.sonatype.m2e.egit.feature:0.17.0.202209271423"/>
 	</list>
-	<section name="NewWizardAction">
-		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.springsource.ide.eclipse.commons.gettingstarted.wizard.boot.NewSpringBootWizard"/>
-		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
-			<item value="org.springsource.ide.eclipse.boot.wizards.category"/>
-		</list>
-		<section name="NewWizard.dialogBounds">
-			<item key="DIALOG_X_ORIGIN" value="0"/>
-			<item key="DIALOG_Y_ORIGIN" value="0"/>
-			<item key="DIALOG_WIDTH" value="525"/>
-			<item key="DIALOG_HEIGHT" value="500"/>
-			<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
-		</section>
-	</section>
-	<section name="BasicNewProjectResourceWizard">
-		<section name="BasicNewProjectResourceWizard.dialogBounds">
-			<item key="DIALOG_X_ORIGIN" value="0"/>
-			<item key="DIALOG_Y_ORIGIN" value="0"/>
-			<item key="DIALOG_WIDTH" value="525"/>
-			<item key="DIALOG_HEIGHT" value="500"/>
-			<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
-		</section>
-	</section>
-	<section name="ChooseWorkspaceDialogSettings">
-		<item key="DIALOG_X_ORIGIN" value="325"/>
-		<item key="DIALOG_Y_ORIGIN" value="126"/>
-	</section>
-	<section name="ExternalProjectImportWizard">
-		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
-		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
-		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
-		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
-		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
-		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
-			<item value="C:\Users\a\Desktop\새 폴더\Wishlist"/>
-			<item value="C:\Git\work\SpringWork"/>
-			<item value="C:\Git\work\SpringWork\SpringStudy03"/>
-		</list>
-		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
-			<item value=""/>
-			<item value="C:\SpringBoot\begin\src\main\resources\application.yml"/>
-			<item value="C:\SpringBoot\begin\src\main\webapp\WEB-INF\views\login\login.jsp"/>
-		</list>
-		<section name="ExternalProjectImportWizard.dialogBounds">
-			<item key="DIALOG_X_ORIGIN" value="384"/>
-			<item key="DIALOG_Y_ORIGIN" value="52"/>
-			<item key="DIALOG_WIDTH" value="525"/>
-			<item key="DIALOG_HEIGHT" value="694"/>
-			<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
-		</section>
-	</section>
 </section>
