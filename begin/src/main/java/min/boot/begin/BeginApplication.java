@@ -11,3 +11,4 @@ public class BeginApplication {
 	}
 
 }
+//0610 커밋 테스트
