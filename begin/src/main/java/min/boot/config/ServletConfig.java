@@ -10,7 +10,7 @@ import min.boot.begin.servlet.login.InterceptorLogin;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"min.boot.begin", "min.boot.servlet"})
+@ComponentScan(basePackages = {"min.boot.begin"})
 public class ServletConfig implements WebMvcConfigurer{
 @Override
 public void addInterceptors(InterceptorRegistry interceptorRegistry) {

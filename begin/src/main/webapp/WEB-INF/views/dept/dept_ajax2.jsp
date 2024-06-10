@@ -1,190 +1,213 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>부서 관리</title>
-<link rel="stylesheet" type="text/css" href="./css/bootstrap.min_4.5.0.css">
+<link rel="stylesheet" type="text/css"
+	href="./css/bootstrap.min_4.5.0.css">
 <script src="./js/jquery-3.5.1.min.js" type="text/javascript"></script>
 <script src="./js/bootstrap.min_4.5.0.js" type="text/javascript"></script>
 <style type="text/css">
 .btn-group-custom {
-display: flex;
-justify-content: center;
-margin-bottom: 20px;
-flex-wrap: wrap;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+	flex-wrap: wrap;
 }
+
 .btn-group-custom .btn {
-margin: 5px;
-min-width: 120px;
+	margin: 5px;
+	min-width: 120px;
 }
+
 .custom-table-wrapper {
-overflow-x: auto;
-width: 100%;
+	overflow-x: auto;
+	width: 100%;
 }
+
 table.custom-table {
-width: 100%;
-border-collapse: collapse;
-margin-bottom: 20px;
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
 }
+
 table.custom-table th, table.custom-table td {
-border: 1px solid #ddd;
-padding: 8px;
-text-align: center;
-vertical-align: middle;
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: center;
+	vertical-align: middle;
 }
+
 table.custom-table th {
-background-color: #f2f2f2;
-font-weight: bold;
+	background-color: #f2f2f2;
+	font-weight: bold;
 }
+
 .modal-header {
-background-color: #f8f9fa;
+	background-color: #f8f9fa;
 }
+
 .modal-body {
-padding: 20px;
+	padding: 20px;
 }
+
 .form-group label {
-font-weight: bold;
+	font-weight: bold;
 }
 </style>
 </head>
 <body>
-<!-- <div class="container p-3 my-3 border">
-<div class="btn-group-custom">
-<button id="selectAllBtn" class="btn btn-outline-secondary">부서 목록</button>
-<button id="selectBtn" class="btn btn-outline-secondary">부서 상세 보기</button>
-<button id="insertBtn" class="btn btn-outline-secondary">부서 입력</button>
-<button id="updateBtn" class="btn btn-outline-secondary">부서 수정</button>
-<button id="deleteBtn" class="btn btn-outline-secondary">부서 삭제</button>
-</div>
-<div id="result" class="custom-table-wrapper">
-<table id="resultTable" class="custom-table">
-<thead>
-<tr>
-<th>부서 번호</th>
-<th>부서 이름</th>
-<th>부서 지역</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-</div>
-</div>
-부서 상세 모달을 설정한다.
-<div class="modal fade" id="selectModal" tabindex="-1" role="dialog" aria-labelledby="selectModalLabel" 
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="selectModalLabel">부서 상세 보기</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-<form id="selectForm">
-<div class="form-group">
-<label for="selectDeptNo">부서 번호</label>
-<input type="text" class="form-control" id="selectDeptNo" name="deptno">
-</div>
-<button type="button" class="btn btn-outline-info" id="submitSelectForm">입력</button>
-</form>
-</div>
-</div>
-</div>
-</div>
-<div class="modal fade" id="insertModal" tabindex="-1" role="dialog" aria-labelledby="insertModalLabel" 
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="insertModalLabel">부서 입력</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-<form id="insertForm">
-<div class="form-group">
-<label for="insertDeptNo">부서 번호</label>
-<input type="text" class="form-control" id="insertDeptNo" name="deptno">
-</div>
-<div class="form-group">
-<label for="insertDname">부서 이름</label>
-<input type="text" class="form-control" id="insertDname" name="dname">
-</div>
-<div class="form-group">
-<label for="insertLoc">부서 지역</label>
-<input type="text" class="form-control" id="insertLoc" name="loc">
-</div>
-<button type="button" class="btn btn-outline-info" id="submitInsertForm">등록</button>
-</form>
-</div>
-</div>
-</div>
-</div>
-부서 수정 모달을 설정한다.
-<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" 
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="updateModalLabel">부서 수정</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-<form id="updateForm">
-<div class="form-group">
-<label for="updateDeptNo">부서 번호</label>
-<input type="text" class="form-control" id="updateDeptNo" name="deptno">
-</div>
-<div class="form-group">
-<label for="updateDname">부서 이름</label>
-<input type="text" class="form-control" id="updateDname" name="dname">
-</div>
-<div class="form-group">
-<label for="updateLoc">부서 지역</label>
-<input type="text" class="form-control" id="updateLoc" name="loc">
-</div>
-<button type="button" class="btn btn-outline-info" id="submitUpdateForm">수정</button>
-</form>
-</div>
-</div>
-</div>
-</div>
-부서 삭제 모달을 설정한다.
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" 
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="deleteModalLabel">부서 삭제</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-<form id="deleteForm">
-<div class="form-group">
-<label for="deleteDeptNo">부서 번호</label>
-<input type="text" class="form-control" id="deleteDeptNo" name="deptno">
-</div>
-<button type="button" class="btn btn-outline-info" id="submitDeleteForm">삭제</button>
-</form>
-</div>
-</div>
-</div>
-</div> -->
-<script type="text/javascript">
+	<div class="container p-3 my-3 border">
+		<div class="btn-group-custom">
+			<button id="selectAllBtn" class="btn btn-outline-secondary">부서
+				목록</button>
+			<button id="selectBtn" class="btn btn-outline-secondary">부서
+				상세 보기</button>
+			<button id="insertBtn" class="btn btn-outline-secondary">부서
+				입력</button>
+			<button id="updateBtn" class="btn btn-outline-secondary">부서
+				수정</button>
+			<button id="deleteBtn" class="btn btn-outline-secondary">부서
+				삭제</button>
+		</div>
+		<div id="result" class="custom-table-wrapper">
+			<table id="resultTable" class="custom-table">
+				<thead>
+					<tr>
+						<th>부서 번호</th>
+						<th>부서 이름</th>
+						<th>부서 지역</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+	</div>
+	부서 상세 모달을 설정한다.
+	<div class="modal fade" id="selectModal" tabindex="-1" role="dialog"
+		aria-labelledby="selectModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="selectModalLabel">부서 상세 보기</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="selectForm">
+						<div class="form-group">
+							<label for="selectDeptNo">부서 번호</label> <input type="text"
+								class="form-control" id="selectDeptNo" name="deptno">
+						</div>
+						<button type="button" class="btn btn-outline-info"
+							id="submitSelectForm">입력</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="insertModal" tabindex="-1" role="dialog"
+		aria-labelledby="insertModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="insertModalLabel">부서 입력</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="insertForm">
+						<div class="form-group">
+							<label for="insertDeptNo">부서 번호</label> <input type="text"
+								class="form-control" id="insertDeptNo" name="deptno">
+						</div>
+						<div class="form-group">
+							<label for="insertDname">부서 이름</label> <input type="text"
+								class="form-control" id="insertDname" name="dname">
+						</div>
+						<div class="form-group">
+							<label for="insertLoc">부서 지역</label> <input type="text"
+								class="form-control" id="insertLoc" name="loc">
+						</div>
+						<button type="button" class="btn btn-outline-info"
+							id="submitInsertForm">등록</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	부서 수정 모달을 설정한다.
+	<div class="modal fade" id="updateModal" tabindex="-1" role="dialog"
+		aria-labelledby="updateModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="updateModalLabel">부서 수정</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="updateForm">
+						<div class="form-group">
+							<label for="updateDeptNo">부서 번호</label> <input type="text"
+								class="form-control" id="updateDeptNo" name="deptno">
+						</div>
+						<div class="form-group">
+							<label for="updateDname">부서 이름</label> <input type="text"
+								class="form-control" id="updateDname" name="dname">
+						</div>
+						<div class="form-group">
+							<label for="updateLoc">부서 지역</label> <input type="text"
+								class="form-control" id="updateLoc" name="loc">
+						</div>
+						<button type="button" class="btn btn-outline-info"
+							id="submitUpdateForm">수정</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	부서 삭제 모달을 설정한다.
+	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+		aria-labelledby="deleteModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="deleteModalLabel">부서 삭제</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="deleteForm">
+						<div class="form-group">
+							<label for="deleteDeptNo">부서 번호</label> <input type="text"
+								class="form-control" id="deleteDeptNo" name="deptno">
+						</div>
+						<button type="button" class="btn btn-outline-info"
+							id="submitDeleteForm">삭제</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
 // 콜백 함수로 문서가 완전히 로드되고 DOM이 준비된 후에 실행된다.
 $(function( ) {
 // 전체 부서 목록을 로드한다.
 function loadData( ) {
 $.ajax({
 // 모든 부서 정보를 가져오는 API 엔드포인트다.
-url: './selectAll',
+url: './select',
 method: 'GET',
 success: function(data) {
 console.log("json 데이터 확인 : ", data);

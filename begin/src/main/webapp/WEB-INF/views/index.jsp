@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Index Page</title>
 </head>
 <body>
-<button>조회하기</button>
+<script type="text/javascript">
+    // 페이지가 로드되면 DeptSelectView로 리디렉션
+    window.onload = function() {
+        location.href = "./DeptSelectView";
+    }
+</script>
 </body>
 </html>
