@@ -11,7 +11,6 @@ version = '0.0.1-SNAPSHOT'
 java {
 	sourceCompatibility = '17'
 }
-
 repositories {
 	mavenCentral()
 }
@@ -31,7 +30,7 @@ dependencies {
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
 	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-	implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+//	provideRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	runtimeOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
 	runtimeOnly 'jakarta.servlet.jsp:jakarta.servlet.jsp-api:3.1.1'
 	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0'
@@ -63,12 +62,4 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-eclipse {
-	wtp {
-		facet {
-			facet name: 'jst.web', version: '6.0'
-			facet name: 'java', version: '17'
-		}
-	}
-}
 
