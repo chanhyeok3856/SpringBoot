@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "file:///C:/schema/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.DepartmentMapper">
+    <resultMap id="DepartmentResultMap" type="com.example.department.model.Department">
+        <id property="deptId" column="dept_id"/>
+        <result property="deptName" column="dept_name"/>
+        <result property="location" column="location"/>
+    </resultMap>
+
+    <select id="getAllDepartments" resultMap="DepartmentResultMap">
+        SELECT * FROM Department
+    </select>
+
+    <select id="getDepartmentById" parameterType="int" resultMap="DepartmentResultMap">
+        SELECT * FROM Department WHERE dept_id = #{deptId}
+    </select>
+
+    <insert id="insertDepartment" parameterType="com.example.department.model.Department">
+        INSERT INTO Department (dept_name, location) VALUES (#{deptName}, #{location})
+    </insert>
+
+    <update id="updateDepartment" parameterType="com.example.department.model.Department">
+        UPDATE Department SET dept_name = #{deptName}, location = #{location} WHERE dept_id = #{deptId}
+    </update>
+
+    <delete id="deleteDepartment" parameterType="int">
+        DELETE FROM Department WHERE dept_id = #{deptId}
+    </delete>
+</mapper>
